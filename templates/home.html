@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake News Detector — Home</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+     footer {
+      background: #343a40; color: #fff; 
+      text-align: center;
+      padding: 15px;
+       margin-top: 40px;
+       width: 1hv;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">📰 Fake News Detector</h1>
+    <div class="space-x-4">
+      <a href="/" class="hover:text-gray-200">Home</a>
+      <a href="/news" class="hover:text-gray-200">Detector</a>
+      <a href="/login" class="hover:text-gray-200">Login</a>
+      <a href="/contact" class="hover:text-gray-200">Contact</a>
+      <a href="/about" class="hover:text-gray-200">About</a>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto text-center mt-20 px-6">
+    <h2 class="text-4xl font-extrabold text-blue-800">Detect Fake News Instantly with AI 🚀</h2>
+    <p class="mt-4 text-gray-600">Paste a news article or URL and our AI will check if it's real or fake. Powered by your Flask ML model.</p>
+
+    <!-- Quick Links -->
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">Quick Detector</h3>
+        <p class="text-gray-600">Go to the detector page and paste text or a URL to check an article. See your previously checked articles and statistics.</p>
+        <a href="/news" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Open Detector</a>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">Know More About</h3>
+        <p class="text-gray-600">Learn how AI helps identify fake news and its impact on society.</p>
+        <a href="/about" class="inline-block mt-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">About Info</a>
+      </div>
+    </div>
+
+    <!-- ✅ Fake vs Real News Demo -->
+    <section class="mt-16 text-left">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">Fake vs Real News Demo 📰</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Fake News -->
+        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-red-700">Fake News Example</h3>
+          <p class="mt-2 text-gray-700">"Breaking: Miracle cure for COVID-19 discovered! Click here to learn more!"</p>
+          <p class="mt-2 font-bold text-red-700">Detected as: Fake</p>
+        </div>
+        <!-- Real News -->
+        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-green-700">Real News Example</h3>
+          <p class="mt-2 text-gray-700">"The government announced new health guidelines to prevent seasonal flu." </p>
+          <p class="mt-2 font-bold text-green-700">Detected as: Real</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Why Detection is Needed -->
+    <section class="mt-16 text-left">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">Why Fake News Detection Matters ❗</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Prevent misinformation and rumors from spreading online.</li>
+        <li>Helps individuals make informed decisions based on verified facts.</li>
+        <li>Protects society from panic, fraud, and harmful influence.</li>
+        <li>Supports journalists and researchers in maintaining credibility.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ How it Helps Humans -->
+    <section class="mt-16 text-left mb-12">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">How This AI Helps Humans 💡</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Instantly identifies suspicious or misleading articles.</li>
+        <li>Saves time for fact-checkers and readers.</li>
+        <li>Highlights risky words or phrases to double-check.</li>
+        <li>Improves trust in news consumption and social media posts.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Fake News Detector | Built with Flask & MongoDB</p>
+    </footer>
+
+  </main>
+</body>
+</html>

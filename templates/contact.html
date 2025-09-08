@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact & Dashboard — Fake News Detector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+     footer {
+      background: #343a40; color: #fff; text-align: center;
+      padding: 15px; margin-top: 40px; width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">📰 Fake News Detector</h1>
+    <div class="space-x-4">
+      <a href="/" class="hover:text-gray-200">Home</a>
+      <a href="/news" class="hover:text-gray-200">Detector</a>
+      <a href="/dashboard" class="hover:text-gray-200">Dashboard</a>
+      <a href="/contact" class="hover:text-gray-200">Contact</a>
+      <a href="/logout" class="hover:text-gray-200">Logout</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto mt-12 px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-6 text-center">Contact & User Dashboard</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Contact Info Column -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-4 flex">Contact Information</h3>
+        <p class="mb-2"> Email: <br><a href="mailto:kamalbarman900280@gmail.com" class="text-blue-600 hover:underline"> 📧</a></p>
+        <p class="mb-2"> LinkedIn:<br> <a href="https://www.linkedin.com/in/kamal-barman-75934530a/" target="_blank" class="text-blue-600 hover:underline">💼</a></p>
+        <p class="mb-2"> WhatsApp:<br> <a href="https://wa.me/919002800162" target="_blank" class="text-green-600 hover:underline">📱</a></p>
+        <p class="mt-4 text-gray-700">You can contact me for suggestions, collaboration, or feedback about the Fake News Detector app.</p>
+      </div>
+
+      <!-- Dashboard Column -->
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-semibold mb-4">Your Dashboard</h3>
+
+        <!-- Comment Form -->
+        <form method="POST" action="/contact/comment" class="mb-6">
+          <textarea name="comment" rows="3" class="w-full p-3 border rounded-lg mb-2" placeholder="Write a comment..." required></textarea>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Submit</button>
+        </form>
+
+        <!-- Previous Comments -->
+        <div class="max-h-80 overflow-y-auto">
+          <h4 class="font-semibold mb-2">Your Previous Comments</h4>
+          {% if comments %}
+            <ul class="space-y-2">
+              {% for c in comments %}
+                <li class="p-3 bg-gray-50 rounded-lg border-l-4 border-blue-600 shadow-sm">
+                  <p>{{ c.text }}</p>
+                  <p class="text-gray-500 text-sm mt-1">On {{ c.date }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-gray-500">No comments yet. Write one above!</p>
+          {% endif %}
+        </div>
+
+        <!-- Optional: Show news detection history -->
+        <div class="mt-6">
+          <h4 class="font-semibold mb-2">News Check History</h4>
+          {% if history %}
+            <ul class="space-y-2 max-h-64 overflow-y-auto">
+              {% for h in history %}
+                <li class="p-3 bg-gray-50 rounded-lg border-l-4 border-green-600 shadow-sm">
+                  <p><strong>{{ h.result }}</strong> — Confidence: {{ h.confidence }}%</p>
+                  <p class="text-gray-500 text-sm mt-1">{{ h.news|truncate(100) }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p class="text-gray-500">No news checked yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-12">
+      <p>© 2025 Fake News Detector | Built with Flask & MongoDB</p>
+    </footer>
+  </main>
+
+</body>
+</html>

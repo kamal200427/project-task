@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Fake News Detector</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+    nav {
+      background-color: #007bff;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white; text-decoration: none; margin: 0 12px; font-weight: bold;
+    }
+    nav a:hover { text-decoration: underline; }
+    .container { max-width: 800px; margin: 30px auto; padding: 20px; }
+    .card {
+      background: white; padding: 20px; margin: 20px 0;
+      border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%; padding: 12px; border: 1px solid #ccc;
+      border-radius: 6px; margin-bottom: 12px;
+    }
+    button {
+      background: #007bff; color: white; border: none;
+      padding: 10px 16px; border-radius: 6px; cursor: pointer;
+    }
+    button:hover { background: #0056b3; }
+    footer {
+      background: #343a40; color: #fff; text-align: center;
+      padding: 15px; margin-top: 40px;
+    }
+    ul { list-style: none; padding: 0; }
+    ul li {
+      background: #f1f1f1; margin: 8px 0; padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Navbar -->
+   <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">📰 Fake News Detector</h1>
+    <div class="space-x-4">
+      <a href="/" class="hover:text-gray-200">Home</a>
+      <a href="/news" class="hover:text-gray-200">Detector</a>
+      <a href="/logout" class="hover:text-gray-200">Logout</a>
+      <a href="/about" class="hover:text-gray-200">About</a>
+    </div>
+  </nav>
+
+
+  <div class="container">
+
+    <!-- ✅ Input Card -->
+    <div class="card">
+      <h2>Check News</h2>
+      <form method="POST" action="/news">
+        <textarea name="news" rows="6" placeholder="Enter news text here..." required></textarea>
+        <button id="submitBtn" type="submit" 
+          class="bg-green-600 text-gray-800 px-4 py-2 rounded-lg hover:bg-green-300">
+          submit
+        </button>
+      </form>
+    </div>
+
+    <!-- ✅ Result Card -->
+    {% if result %}
+    <div class="card">
+      <h3>📝 Result</h3>
+      <p><strong>Status:</strong> {{ result }}</p>
+      <p><strong>Confidence:</strong> {{ confidance }}%</p>
+    </div>
+    {% endif %}
+
+    <!-- ✅ History Card -->
+    <div class="card">
+      <h3>📜 Detection History</h3>
+      {% if history %}
+        <ul>
+          {% for item in history %}
+          <li>
+            <strong>{{ item.result }}</strong> ({{ item.confidence }}%) — 
+            <em>{{ item.news[:60] }}{% if item.news|length > 60 %}...{% endif %}</em>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No history yet.</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <p>© 2025 Fake News Detector | Built with Flask & MongoDB</p>
+  </footer>
+
+</body>
+</html>

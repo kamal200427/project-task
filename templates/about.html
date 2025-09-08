@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fake News Detector — About</title>
+
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+ footer {
+      background: #343a40; color: #fff; text-align: center;
+      padding: 15px; margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">📰 Fake News Detector</h1>
+    <div class="space-x-4">
+      <a href="/" class="hover:text-gray-200">Home</a>
+      <a href="/news" class="hover:text-gray-200">Detector</a>
+      <a href="/login" class="hover:text-gray-200">Login</a>
+      <a href="/about" class="hover:text-gray-200">About</a>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto mt-12 px-6">
+    <div class="bg-white p-6 rounded-xl shadow-lg">
+      <h2 class="text-3xl font-bold mb-4">ℹ️ About This Project</h2>
+      <p class="text-gray-700">
+        Fake news spreads misinformation and can cause serious damage. This project uses Natural Language Processing (NLP) and a machine learning classifier
+        hosted in a Flask backend to detect misleading or fake articles.
+      </p>
+
+      <h3 class="text-xl font-semibold mt-6">ML Workflow</h3>
+      <div class="mt-4 space-y-3">
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <strong>1. Data Collection:</strong> Gather labeled real & fake news datasets.
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <strong>2. Text Preprocessing:</strong> Tokenization, stopword removal, stemming/lemmatization, TF-IDF or embeddings.
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <strong>3. Model Training:</strong> Train classifiers (Logistic Regression / SVM / Transformer-based models).
+        </div>
+        <div class="p-4 bg-gray-50 rounded-lg">
+          <strong>4. Prediction & Confidence Scoring:</strong> Model returns label + confidence score.
+        </div>
+      </div>
+
+      <h3 class="text-xl font-semibold mt-6">Features</h3>
+      <ul class="list-disc pl-6 mt-2 text-gray-700">
+        <li>Paste text or URL to detect fake news</li>
+        <li>Confidence score instead of binary-only output</li>
+        <li>Highlight suspicious words</li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 Fake News Detector | Built with Flask & MongoDB</p>
+  </footer>
+</body>
+</html>
